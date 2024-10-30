@@ -1,0 +1,211 @@
+:root {
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --very-dark-blue: hsl(234, 12%, 34%);
+    --grayish-blue: hsl(229, 6%, 66%);
+    --very-light-gray: hsl(0, 0%, 98%);
+    --blueish-gray: hsl(213, 47%, 67%);
+}
+
+/* Style resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Fonts */
+
+/* poppins-200 - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 200;
+    src: url('../fonts/poppins-v21-latin-200.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* poppins-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/poppins-v21-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* poppins-600 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/poppins-v21-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+/* Styles */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 0.938rem;
+    background-color: var(--very-light-gray);
+    color: var(--grayish-blue);
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Poppins';
+    font-weight: 200;
+    font-size: 2.25rem;
+    line-height: 1.2;
+    color: var(--very-dark-blue);
+}
+
+h2 {
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--very-dark-blue);
+}
+
+.subheading {
+    font-weight: 600;
+    display: block;
+}
+
+.leading-text {
+    margin: 1.5em auto;
+    max-width: 55ch;
+    text-wrap: pretty;
+}
+
+.card-section {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2em;
+    margin: 4em 0;
+}
+
+.card-section :first-child{
+    grid-row: 1 / span 2;
+}
+
+.card-section :last-child{
+    grid-row: 1 / span 2;
+}
+
+.card {
+    position: relative;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1em 1.5em;
+    box-shadow: 0 15px 30px -11px var(--blueish-gray); 
+    align-self: center;
+    width: 100%;
+    aspect-ratio: 7 / 5;
+}
+
+.green {
+    border-top: 4px solid;
+    border-color: var(--cyan);
+}
+
+.red {
+    border-top: 4px solid;
+    border-color: var(--red);
+}
+
+.yellow {
+    border-top: 4px solid;
+    border-color: var(--orange);
+}
+
+.blue {
+    border-top: 4px solid;
+    border-color: var(--blue);
+}
+
+.card-body {
+    font-size: 0.813;
+}
+
+.card-icon {
+    position: absolute;
+    width: 64px;
+    height: auto;
+    bottom: 2em;
+    right: 2em;
+}
+
+footer {
+    text-align: center;
+    margin: 2em auto;
+}
+
+@media (max-width:1024px){
+    .card-section {
+        grid-template: 1fr 1fr / 1fr 1fr;
+        margin: 4em auto;
+    }
+
+    .card-section :first-child {
+        grid-row: auto;
+    }
+
+    .card-section :last-child {
+        grid-row: auto;
+    }
+}
+
+@media (max-width:600px){
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 1.5em;
+    }
+
+    .card {
+        aspect-ratio: 7 / 4;
+    }
+
+    .card-section {
+        grid-template: repeat(4, 1fr) / 1fr;
+    }
+
+    .card-icon {
+        width: 57px;
+    }
+
+}
